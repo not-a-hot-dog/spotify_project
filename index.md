@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## Introduction
 
 [a relative link](./pages/eda.md)
 
