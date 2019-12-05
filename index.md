@@ -1,6 +1,5 @@
-## Introduction
-
 <div style="text-align: right"> <a href="./notebook.ipynb">Download Notebook</a> </div>
+## Introduction
 
 This is the introduction to our project.
 
