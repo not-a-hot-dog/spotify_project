@@ -1,6 +1,6 @@
 ## Introduction
 
-[a relative link](./pages/eda.md)
+[a relative link](./eda.md)
 
 INDEX You can use the [editor on GitHub](https://github.com/not-a-hot-dog/spotify_project/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
