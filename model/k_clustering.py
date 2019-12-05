@@ -43,3 +43,7 @@ pickle.dump(kmeans, open('./model/kmeans_cluster_train.pickle', 'wb'))
 cluster_centers = kmeans.cluster_centers_
 np.savetxt('./model/kmeans_cluster_centers_train.csv', cluster_centers, delimiter=',')
 
+# Saving the cluster label for each playlist in train (e.g., for track frequency table by cluster)
+cluster_labels = kmeans.labels_
+playlist_cluster_labels = np.column_stack((playlist_list, cluster_labels))
+np.savetxt('./model/playlist_cluster_labels_train.csv', playlist_cluster_labels, delimiter=',')
