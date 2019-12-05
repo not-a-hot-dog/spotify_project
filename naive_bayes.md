@@ -1,3 +1,3 @@
-## Naive Bayes
+## Naive Bayes Classifier
 
 Put info here
