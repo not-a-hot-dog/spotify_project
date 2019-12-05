@@ -1,7 +1,6 @@
 ## Introduction
 
 <div style="text-align: right"> <a href="./notebook.ipynb">Download Notebook</a> </div>
-[Download Notebook](./notebook.ipynb)
 
 This is the introduction to our project.
 
