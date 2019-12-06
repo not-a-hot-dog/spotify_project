@@ -1,7 +1,7 @@
 import pickle
 import pandas as pd
 import numpy as np
-from model.helper_functions import get_summary_features
+from model.helper_functions import get_summary_features, get_tracks
 
 
 
@@ -13,7 +13,7 @@ def predict_cluster(track_uri_array):
     """
 
     # Load nearest cluster model
-    nearest_cluster = pickle.load(open('./model/nearest_cluster_train.pickle', 'wb'))
+    nearest_cluster = pickle.load(open('./model/nearest_cluster_train.pkl', 'rb'))
 
     # Load list of dominating artists
     top_playlist_defining_artists = np.genfromtxt('./data/top_playlist_defining_artists_train.csv', usecols=0,
@@ -52,3 +52,6 @@ def predict_songs(track_uri_array, n_tracks=30):
     cluster = predict_cluster(track_uri_array)
 
     pass
+
+# pid = 22124
+# print(predict_cluster(get_tracks(pid)))

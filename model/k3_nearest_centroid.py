@@ -7,4 +7,4 @@ cluster_centers = np.genfromtxt('./model/kmeans_cluster_centers_train.csv', skip
 # Fit the neighbors classifier
 nearest_cluster = NearestNeighbors(n_neighbors=1)
 nearest_cluster.fit(cluster_centers)
-pickle.dump(nearest_cluster, open('./model/nearest_cluster_train.pickle', 'wb'))
+pickle.dump(nearest_cluster, open('./model/nearest_cluster_train.pkl', 'wb'))
