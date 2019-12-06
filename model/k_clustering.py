@@ -25,4 +25,4 @@ np.savetxt('./model/kmeans_cluster_centers_train.csv', cluster_centers, delimite
 # Saving the cluster label for each playlist in train (e.g., for track frequency table by cluster)
 cluster_labels = kmeans.labels_
 playlist_cluster_labels = np.column_stack((playlist_list, cluster_labels))
-np.savetxt('./model/playlist_cluster_labels_train.csv', playlist_cluster_labels, delimiter=',')
+np.savetxt('./model/playlist_cluster_labels_train.csv', playlist_cluster_labels, delimiter=',', fmt='%i')
