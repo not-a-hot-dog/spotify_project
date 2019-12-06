@@ -1,11 +1,9 @@
 import pandas as pd
 import numpy as np
 from model.helper_functions import build_playlist_features
-from sklearn.cluster import KMeans
-import pickle
 
 print('Finding playlist features')
-playlist_list = np.genfromtxt('./data/train_pids.csv', skip_header=0, dtype=int)
+playlist_list = np.genfromtxt('./data/train_pids.csv', skip_header=1, dtype=int)
 playlist_features = build_playlist_features(playlist_list)
 playlist_features.to_csv('./data/playlist_features_train.csv')
 
