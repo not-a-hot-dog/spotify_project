@@ -38,9 +38,15 @@ def build_playlist_features(pid_list, playlist_df, track_df):
     return output
 
 
-def stub_withold_split(pid: int, playlist_df: pd.DataFrame=None):
+def stub_withhold_split(pid: int, playlist_df: pd.DataFrame=None):
     if playlist_df is None: playlist_df = pd.read_csv('../data/playlists.csv')
     tracks = get_tracks(pid, playlist_df)
-    stub_tracks, withold_tracks = train_test_split(tracks, random_state=21, test_size=0.3)
-    return stub_tracks, withold_tracks
+    stub_tracks, withhold_tracks = train_test_split(tracks, random_state=21, test_size=0.3)
+    return stub_tracks, withhold_tracks
+
+
+def r_precision(predicted_tracks: np.ndarray, known_tracks: np.ndarray):
+    known_tracks_df = pd.DataFrame(known_tracks)
+    score = np.mean(known_tracks_df.iloc[:, 0].isin(predicted_tracks))
+    return score
 
