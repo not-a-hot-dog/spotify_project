@@ -3,16 +3,14 @@ import numpy as np
 from model.helper_functions import build_playlist_features
 
 print('Reading data into memory')
-playlist_list = np.genfromtxt('../data/train_pids.csv', skip_header=1, dtype=int)
-
+pid_list = np.genfromtxt('../data/train_pids.csv', skip_header=1, dtype=int)
 playlistfile = '../data/playlists.csv'
 playlist_df = pd.read_csv(playlistfile)
-
 trackfile = '../data/songs_100000_feat_cleaned.csv'
 track_df = pd.read_csv(trackfile, index_col='track_uri')
 
 print('Finding playlist features')
-playlist_features = build_playlist_features(playlist_list, )
+playlist_features = build_playlist_features(pid_list, playlist_df, track_df)
 playlist_features.to_csv('../data/playlist_features_train.csv')
 
 print('Finding top artists')

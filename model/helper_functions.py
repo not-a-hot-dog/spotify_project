@@ -3,6 +3,9 @@ import numpy as np
 
 
 # Helper function to get tracks for a pid
+from sklearn.model_selection import train_test_split
+
+
 def get_tracks(pid, playlist_df):
     tracks = list(playlist_df.loc[playlist_df['pid'] == pid, 'track_uri'])
     return tracks
@@ -27,9 +30,17 @@ def get_summary_features(track_uri_array, track_df):
     return features
 
 
-def build_playlist_features(pid_list, track_df, playlist_df):
+def build_playlist_features(pid_list, playlist_df, track_df):
     output = pd.DataFrame()
     for pid in pid_list:
-        output = output.append(get_summary_features(get_tracks(pid, playlist_df),track_df))
+        output = output.append(get_summary_features(get_tracks(pid, playlist_df), track_df))
     output = output.set_index(pd.Index(pid_list))
     return output
+
+
+def stub_withold_split(pid: int, playlist_df: pd.DataFrame=None):
+    if playlist_df is None: playlist_df = pd.read_csv('../data/playlists.csv')
+    tracks = get_tracks(pid, playlist_df)
+    stub_tracks, withold_tracks = train_test_split(tracks, random_state=21, test_size=0.3)
+    return stub_tracks, withold_tracks
+
