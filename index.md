@@ -1,4 +1,4 @@
-<div style="text-align: right"> <a href="./notebook.ipynb">Download Notebook</a> </div>  
+<div style="text-align: right"> <a href="https://raw.githubusercontent.com/not-a-hot-dog/spotify_project/master/Spotify_Playlist_Generation_Group_21_Models.ipynb">Download Notebook</a> </div>  
 <div style="text-align: right"> <a href="https://drive.google.com/file/d/1vKTZ4S0wiGxiffjPxnth1rrBXIOTcLCQ/view?usp=sharing">Download Data</a> </div>  
 ## Goal
 Starting with an initial playlist chosen by a user, we recommend additional songs by suggesting tracks that appear in similar playlists.
