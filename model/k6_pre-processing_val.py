@@ -25,7 +25,7 @@ errors = 0
 for idx, pid in enumerate(val_pids):
     try:
         stub_tracks, withhold_tracks = stub_withhold_split(pid)
-        stub_playlist_feats = val_test_features(stub_tracks, track_df=track_df, top_artists=top_artists)
+        stub_playlist_feats = val_test_features(stub_tracks, track_df=track_df, top_artists=top_artists, pid=pid)
         val_stub_feat_dfs[idx] = stub_playlist_feats
     except Exception as e:
         print(f'Error for pid {pid}: \n{e}')

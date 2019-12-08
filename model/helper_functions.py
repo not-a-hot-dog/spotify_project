@@ -30,7 +30,7 @@ def get_summary_features(track_uri_array, track_df):
     return features
 
 
-def val_test_features(track_uri_array, track_df, top_artists):
+def val_test_features(track_uri_array, track_df, top_artists, pid=None):
     # Load list of dominating artists
     top_playlist_defining_artists = top_artists
 
@@ -47,7 +47,8 @@ def val_test_features(track_uri_array, track_df, top_artists):
     top_artist_dummies.fillna(0, inplace=True)
     stub_playlist_features = pd.concat([stub_playlist_features, top_artist_dummies], axis=1)
     stub_playlist_features.drop(['artist_uri_top'], axis=1, inplace=True)
-    stub_playlist_features.index = [pid]
+    if pid:
+        stub_playlist_features.index = [pid]
 
     return stub_playlist_features
 

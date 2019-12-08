@@ -23,12 +23,12 @@ for idx, (pid, cluster_id) in enumerate(val_clusters):
     n_withheld = min(n_predictions, len(withhold_tracks))
     n_7withheld_over_3 = min(n_predictions, int(n_withheld * 7/3))
 
-    predictions_10 = predictions[:10]
+    predictions_10 = predictions[:n_10]
     predictions_n_withheld = predictions[:n_withheld]
     predictions_7withheld_over_3 = predictions[:n_7withheld_over_3]
 
     # Score the predictions!
-    hit_rate_10 = hit_rate(withhold_tracks=withhold_tracks, predicted_tracks=predictions_n_withheld)
+    hit_rate_10 = hit_rate(withhold_tracks=withhold_tracks, predicted_tracks=predictions_10)
     rps_withheld = r_precision(withhold_tracks=withhold_tracks, predicted_tracks=predictions_n_withheld)
     rps_7withheld_over_3 = r_precision(withhold_tracks=withhold_tracks, predicted_tracks=predictions_7withheld_over_3)
     ndcg_withheld = ndcg(withhold_tracks=withhold_tracks, predicted_tracks=predictions_n_withheld)
@@ -37,5 +37,5 @@ for idx, (pid, cluster_id) in enumerate(val_clusters):
     # Write to array
     val_scores[idx] = pid, cluster_id, hit_rate_10, rps_withheld, rps_7withheld_over_3, ndcg_withheld, ndcg_7withheld_over_3
 
-np.savetxt("k9_scores_val.csv", val_scores, delimiter=",",
+np.savetxt("./k9_scores_val.csv", val_scores, delimiter=",",
            header='pid,cluster_id,hit_rate_10,rps_withheld,rps_7withheld_over_3,ndcg_withheld,ndcg_7withheld_over_3')

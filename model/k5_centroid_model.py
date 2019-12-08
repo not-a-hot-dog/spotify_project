@@ -99,8 +99,3 @@ def predict_tracks(track_uri_array=None, n_tracks='max', frequency_dict: dict = 
     else:
         return predicted_cluster, track_predictions
 
-# It works!
-# pid = 22124
-# stub_tracks, withold_tracks = stub_withold_split(pid)
-# cluster, predictions = predict_tracks(stub_tracks)
-# print(predictions)
