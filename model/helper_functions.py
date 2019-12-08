@@ -64,7 +64,7 @@ def dcg(withhold_tracks, predicted_tracks):
         score = np.sum(mask[0]) + np.sum(mask[1:] / np.log2(np.arange(2, mask.size + 1)))
     except Exception:
         score = np.NaN
-    return max(score, 0)
+    return score
 
 
 def idcg(withhold_tracks):
