@@ -31,6 +31,7 @@ In this section we tried to analyse the song level data, to guess what feature t
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/not-a-hot-dog/spotify_project/gh-pages/_images/eda_ft_dist.png" title="How does the distribution of song features look?" width="480"/>
+</p>
 
 Next, we examine feature correlations to find any redundant features. We find that acousticness is negatively correlated with loudness and energy. Loudness is in turn correlated positively with energy, and negatively with instumentalness. Apart from these, there seems to be no particular multicollinearity, and no features can be discarded entirely as redundant. We now hypothesize that these features are more similar within a playlist, and different across playlists, and examine these claims further in the following sections.
 
