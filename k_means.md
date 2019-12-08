@@ -1,3 +1,10 @@
 ## k-means Clustering
 
-Put info here
+### What is k-means/k-centroid?
+
+### Model Code/Model Specification
+
+### Model Selection / Cross-Validation
+
+### Results
+
