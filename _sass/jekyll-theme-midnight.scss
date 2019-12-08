@@ -174,8 +174,9 @@ dt {
     max-width: 650px;
     margin: 0 auto;
     padding: 0 10px;
-    background: blue;
+    background: black;
     margin: 6px auto;
+	position: relative;
 	float: right;
     text-align: right;
 
@@ -184,6 +185,7 @@ dt {
       font-weight: normal;
       list-style: none;
       display: inline;
+	  position: relative;
 	  float: right;
 	  text-align: right;
       color: white;
@@ -204,7 +206,6 @@ dt {
         line-height:14px;
         font-size:14px;
         display:inline-block;
-		float:right;
         text-align:center;
 
         &:hover {
