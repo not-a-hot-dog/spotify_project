@@ -19,7 +19,7 @@ To obtain the final metrics, we compute the mean of the scores across all the pl
 Hit rate is the number of predicted relevant tracks divided by the total number of predicted tracks.
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/not-a-hot-dog/spotify_project/gh-pages/_images/intro_hit_rate.png" title="High-Level Playlist Features" height="51"/>
+<img src="https://raw.githubusercontent.com/not-a-hot-dog/spotify_project/gh-pages/_images/intro_hit_rate.png" title="High-Level Playlist Features" height="48"/>
 </p>
 
 #### R-precision
@@ -33,5 +33,5 @@ R-precision is the number of predicted relevant tracks divided by the total numb
 Discounted cumulative gain measures the ranking quality of the recommended tracks, increasing when relevant tracks are placed higher in the list. Since we are not concerned about the order of the tracks in the withheld set we give any relevant track a value of 1.
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/not-a-hot-dog/spotify_project/gh-pages/_images/intro_dcg.png" title="High-Level Playlist Features" height="45"/>
+<img src="https://raw.githubusercontent.com/not-a-hot-dog/spotify_project/gh-pages/_images/intro_dcg.png" title="High-Level Playlist Features" height="42"/>
 </p>
