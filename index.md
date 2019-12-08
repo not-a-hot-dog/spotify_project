@@ -3,7 +3,7 @@
 ## Goal
 Starting with an initial playlist chosen by a user, we recommend additional songs by suggesting tracks that appear in similar playlists.
 
-## Methodolgy
+## Methodology
 We created 3 models for our objective: Collaborative Filtering, k-means Clustering and Naive Bayes Classifier. Details are in each model's individual page.
 
 ## Measures of Success
