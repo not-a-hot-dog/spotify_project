@@ -174,14 +174,17 @@ dt {
     max-width: 650px;
     margin: 0 auto;
     padding: 0 10px;
-    background: blue;
     margin: 6px auto;
+	position: relative;
+	float: right;
 
     li {
       font-family: 'OpenSansLight', "Helvetica Neue", Helvetica, Arial, sans-serif;
       font-weight: normal;
       list-style: none;
       display: inline;
+	  position: relative;
+	  float: right;
       color: white;
       line-height: 50px;
       text-shadow: 0px 1px 0px rgba(0,0,0,.2);
