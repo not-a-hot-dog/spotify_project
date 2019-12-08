@@ -45,8 +45,38 @@ def stub_withhold_split(pid: int, playlist_df: pd.DataFrame=None):
     return stub_tracks, withhold_tracks
 
 
-def r_precision(predicted_tracks: np.ndarray, known_tracks: np.ndarray):
-    known_tracks_df = pd.DataFrame(known_tracks)
-    score = np.mean(known_tracks_df.iloc[:, 0].isin(predicted_tracks))
-    return score
+# Model Evaluation Metrics, adapted from https://recsys-challenge.spotify.com/rules
+def r_precision(predicted_tracks: np.ndarray, withhold_tracks: np.ndarray):
+    mask = np.isin(withhold_tracks, predicted_tracks) # Give credit for predicting a track that's in withhold twice!
+    r_precision_score = np.sum(mask)/len(withhold_tracks)
+    return r_precision_score
+
+
+def hit_rate(predicted_tracks: np.ndarray, withhold_tracks: np.ndarray):
+    mask = np.isin(predicted_tracks, withhold_tracks)
+    hit_rate_score = np.sum(mask)/len(predicted_tracks)
+    return hit_rate_score
+
+
+def dcg(withhold_tracks, predicted_tracks):
+    try:
+        mask = np.isin(predicted_tracks, withhold_tracks)
+        score = np.sum(mask[0]) + np.sum(mask[1:] / np.log2(np.arange(2, mask.size + 1)))
+    except Exception:
+        score = np.NaN
+    return max(score, 0)
+
+
+def idcg(withhold_tracks):
+    n_withheld = len(withhold_tracks)
+    ones = np.ones(n_withheld-1)
+    score = 1 + np.sum(ones / np.log2(np.arange(2, n_withheld + 1)))
+    return max(score, 1)
+
+
+def ndcg(withhold_tracks, predicted_tracks):
+    dcg_score = dcg(withhold_tracks=withhold_tracks, predicted_tracks=predicted_tracks)
+    idcg_score = idcg(withhold_tracks)
+    ndcg_score = dcg_score/idcg_score
+    return ndcg_score
 
