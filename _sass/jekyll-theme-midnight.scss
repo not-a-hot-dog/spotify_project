@@ -176,6 +176,8 @@ dt {
     padding: 0 10px;
     background: blue;
     margin: 6px auto;
+	float: right;
+    text-align: right;
 
     li {
       font-family: 'OpenSansLight', "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -200,7 +202,6 @@ dt {
         line-height:14px;
         font-size:14px;
         display:inline-block;
-		position:relative;
 		float:right;
         text-align:center;
 
