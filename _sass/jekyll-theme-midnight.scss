@@ -99,6 +99,7 @@ blockquote {
 
 code {
   font-family: Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal, monospace;
+  background: #191919;
   color:#efefef;
   font-size:13px;
   margin: 0 4px;
@@ -115,7 +116,7 @@ pre {
   overflow: auto;
   overflow-y: hidden;
 
-  code {
+code {
     color: #efefef;
     text-shadow: 0px 1px 0px #000;
     margin: 0;
