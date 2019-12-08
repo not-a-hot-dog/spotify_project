@@ -1,7 +1,5 @@
 <div style="text-align: right"> <a href="./notebook.ipynb">Download Notebook</a> </div>  
 <div style="text-align: right"> <a href="https://drive.google.com/file/d/1vKTZ4S0wiGxiffjPxnth1rrBXIOTcLCQ/view?usp=sharing">Download Data</a> </div>  
-## Introduction
-
 ### Goal
 Starting with an initial playlist chosen by a user, we recommend additional songs by suggesting tracks that appear in similar playlists.
 
