@@ -30,6 +30,29 @@ def get_summary_features(track_uri_array, track_df):
     return features
 
 
+def val_test_features(track_uri_array, track_df, top_artists, pid=None):
+    # Load list of dominating artists
+    top_playlist_defining_artists = top_artists
+
+    # Get summary features
+    stub_playlist_features = get_summary_features(track_uri_array, track_df)
+
+    artists_to_keep = stub_playlist_features.artist_uri_top.isin(top_playlist_defining_artists)
+    stub_playlist_features.artist_uri_top = stub_playlist_features.artist_uri_top[artists_to_keep]
+    stub_playlist_features.artist_uri_freq = stub_playlist_features.artist_uri_freq[artists_to_keep]
+    stub_playlist_features.artist_uri_freq.fillna(0, inplace=True)
+    stub_artist_dummies = pd.get_dummies(stub_playlist_features.artist_uri_top)
+    top_artist_dummies = pd.DataFrame(columns=top_playlist_defining_artists)
+    top_artist_dummies = pd.concat([top_artist_dummies, stub_artist_dummies], axis=0, sort=False)
+    top_artist_dummies.fillna(0, inplace=True)
+    stub_playlist_features = pd.concat([stub_playlist_features, top_artist_dummies], axis=1)
+    stub_playlist_features.drop(['artist_uri_top'], axis=1, inplace=True)
+    if pid:
+        stub_playlist_features.index = [pid]
+
+    return stub_playlist_features
+
+
 def build_playlist_features(pid_list, playlist_df, track_df):
     output = pd.DataFrame()
     for pid in pid_list:
@@ -64,7 +87,7 @@ def dcg(withhold_tracks, predicted_tracks):
         score = np.sum(mask[0]) + np.sum(mask[1:] / np.log2(np.arange(2, mask.size + 1)))
     except Exception:
         score = np.NaN
-    return max(score, 0)
+    return score
 
 
 def idcg(withhold_tracks):
