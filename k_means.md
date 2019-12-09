@@ -10,7 +10,7 @@ We implemented this using a k-Centroid approach. We first use k-means clustering
 We used k-Means Clustering to identify groups of playlists that have similar features. k-Means Clustering is an unsupervised machine learning algorithm which groups similar observations together in a fixed number of `k` clusters to discover underlying patterns.
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/not-a-hot-dog/spotify_project/gh-pages/_images/k_means_example.png" title="4-means clustering" width="400"/>
+<img src="https://raw.githubusercontent.com/not-a-hot-dog/spotify_project/gh-pages/_images/k_means_example.jpg" title="4-means clustering" width="400"/>
 </p>
 
 The k-Means algorithm tries to cluster data by separating observations into groups of equal variance. Based on the input parameters, namely the number of clusters `k`, and a vector of unlabeled input data, the k-Means algorithm first proposes a center for each cluster. Next, it assigns each data point to its nearest cluster centroid. Then, it iterates over the cluster centers in an attempt to reduce `inertia` - the within cluster sum of squares. The algorithm continues to iterate until it converges to an inertia value that is below a threshold. 
