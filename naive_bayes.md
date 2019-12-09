@@ -50,7 +50,7 @@ We have identified the three metrics (RPS, NDCG and hit-rate) to evaluate our mo
 Below the histograms show a distribution of the scores across the three different metrics, with two distributions for RPS and NDCG, one each for the case where the number of recommendations equals the number of songs used for calibration and where it equals the number of withheld songs.
 
 <p align='center'>
-<img src="https://raw.githubusercontent.com/not-a-hot-dog/spotify_project/gh-pages/_images/naive_bayes_results.jpg" title="Naive Bayes Model Performance" width="400"/>
+<img src="https://raw.githubusercontent.com/not-a-hot-dog/spotify_project/gh-pages/_images/NB-perf.png" title="Naive Bayes Model Performance" width="400"/>
 </p>
 
 Overall, with 50 neighbors, the naive Bayes model achieved a 0.116 R-precision score and 0.234 NDCG score by producing the same number of recommendations as the number of songs used to calibrate the model. The R-precision score of 0.116 implies that if given a list of 100 songs, the model is able to produce 100 songs, out of which 11.6 on average would be songs that were in the withheld list of songs.
