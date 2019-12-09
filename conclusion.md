@@ -23,10 +23,6 @@ Based on the current results table, however, we can conjecture the following hyp
 3. NDCG always increases monotonically with increase in number of predicted tracks, in the case of collaborative filtering, K means, and naive Bayes.
 4. Limiting the runtime of the model prediciton generation step favours naive Bayes over the other techniques.
 
-
-### Discussion
-<!-- How did we do overall? Are the scores comparable to other models? Is there a chance that some of our predictions were better than what was in the original playlists? -->
-
 ### Specific Improvements for Future Iterations
 
 #### Naive Bayes
@@ -35,7 +31,13 @@ Naive Bayes has the specific ability to incorporate prior information in the mod
 #### Collaborative Filtering
 
 #### K Means
+k-Means Clustering has the ability to find patterns unsupervised and in high dimensional input data. One area where we did not use this to the fullest was by not including Genre information. This was  due to the limitations of the Genre data in the Spotify API. While the Spotify API associates genres with specific artists, it does not contain the actual Genre of an individual track. Furthermore, the Genres associated with artists are highly specific, and there is no existing grouping of similar Genres (e.g., 'dfw rap', 'melodic rap', 'pop', and 'rap' are all associated with Post Malone, while 'atl hip hop', 'atl trap', 'gangster rap', 'melodic rap' are associated with Young Thug). Making use of this data will require additional pre-processing in the future. 
 
-<!-- Could we incorporate additional data, like Genre, into a future iteration -->
-<!-- Would we want to adapt the code for scalability and performance -->
-<!-- Could we extend these approaches to another task, e.g., predicting courses you may like based on your course reviews and others' course reviews, as well as you major and other courses in your Crimson Cart? -->
+### Discussion
+We return to our performance on the `hit-rate` measure as an indicator of how well our model performs in the context of how real humans would interact with it. On average, our k-Means and Naive Bayes models were able to correctly predict 2 "withheld" songs out of our top 10 predictions for a given calibration playlist. Anecdotally, this is on par with our team members' experiences with the recommendation engine built in to the Spotify application: for every 10 songs recommended, about 2 actually fit the mood of the current playlist. That said, because our models were not tested by humans, we weren't able to consider a key performance indicator: whether the recommended tracks are a better fit for the calibration playlist than the songs which were withheld at random for scoring purposes.
+
+<p align="center">
+<img src="https://raw.githubusercontent.com/not-a-hot-dog/spotify_project/gh-pages/_images/spotify_recommendations.png" title="Spotify's Actual Recommendation Engine"/>
+</p>
+
+Outside of the Spotify playlist recommendation use case, we wonder if we may extend these same approaches to another task that benefits are community. Could we, for example, predict courses a student may like based on their course reviews and others' course reviews, as well as the student's concentration and other courses in their Crimson Cart? Or could these methods be applied to identify post-operative patients who may be at risk for opiod addiction, and flag them to their medical care team for a proactive, opt-in intervention? These are highly adaptable, powerful methods, with the ability to make significant impacts in decisions that enhance human experiences, big and small.
