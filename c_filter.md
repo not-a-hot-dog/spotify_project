@@ -40,7 +40,7 @@ To train the model, we used the combined playlists with both the training and ca
 <img src="https://raw.githubusercontent.com/not-a-hot-dog/spotify_project/gh-pages/_images/sample_matrix.PNG" title="First few rows of matrix">
 </p>
 
-We then used `scipy` [Compressed Sparse Row matrix](https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html) module to transform the matrix. This would reduce the computational complexity and run-time required to work with sparse matrices. 
+We then used `scipy` [Compressed Sparse Row matrix](https://docs.scipy.org/doc/scipy/reference/generated/scipy.sparse.csr_matrix.html) module to transform the matrix. This would allow for scalability as storage of `numpy` matrices tend to become infeasible as the matrix grows larger. 
 
 We then fit the Compressed Sparse Row matrix onto an unsupervised Nearest Neighbors learning model, where n_neighbors = 20 and cosine distance is used as a distance of measure. Here, we have set the neighbors search algorithm to auto, so that the algorithm attempts to determine the best approach from the training data across the options of BallTree, KDTree, and a brute-force algorithm.
 
