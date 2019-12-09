@@ -85,7 +85,7 @@ Below the histograms show a distribution of the scores across the three differen
 <img src="https://raw.githubusercontent.com/not-a-hot-dog/spotify_project/gh-pages/_images/performance_metrics.png" title="k-NN Collaborative Filtering Model Model Evaluation Metrics"/>
 </p>
 
-Overall, with 50 neighbors, the k-NN collaborative filtering model achieved a 0.313 R-precision score and 0.249 NDCG score by producing the same number of recommendations as the number of songs used to calibrate the model. The R-precision score of 0.313 implies that if given a list of 100 songs, the model is able to produce 100 songs, out of which 31.3 on average would be songs that were in the withheld list of songs that were not 
+Overall, with 50 neighbors, the k-NN collaborative filtering model achieved a 0.313 R-precision score and 0.249 NDCG score by producing the same number of recommendations as the number of songs used to calibrate the model. The R-precision score of 0.313 implies that if given a list of 100 songs, the model is able to produce 100 songs, out of which 31.3 on average would be songs that were in the withheld list of songs.
 
 ### Discussion
 
