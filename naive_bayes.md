@@ -7,20 +7,22 @@ Based upon the [EDA](./eda) conducted, we had a feeling that individual song fea
 A naive Bayes classifier is a probabilistic classification model that encodes a belief about independences in the features. Specifically, the naive Bayes classifier assumes that each feature is conditionally independ of every other feature, given the class of the response:
 
 <p align='center'>
-<img src="https://raw.githubusercontent.com/not-a-hot-dog/spotify_project/gh-pages/_images/naive_bayes_assumption.jpg" title="Naive Bayes Model Assumptions" width="400"/>
+<img src="https://raw.githubusercontent.com/not-a-hot-dog/spotify_project/gh-pages/_images/naive_bayes_assumption.png" title="Naive Bayes Model Assumptions" width="400"/>
 </p>
 
 Armed with this assumption, naive Bayes uses the familiar Bayes rule to predict the probability of the response variable belonging to a particular class.
 
 <p align='center'>
-<img src="https://raw.githubusercontent.com/not-a-hot-dog/spotify_project/gh-pages/_images/naive_bayes_inference.jpg" title="Naive Bayes Model Inference" width="400"/>
+<img src="https://raw.githubusercontent.com/not-a-hot-dog/spotify_project/gh-pages/_images/bayes_rule.png" title="Naive Bayes Model Inference" width="400"/>
 </p>
 
 Thus, the final form of the prediction function in the case of naive Bayes is:
 
 <p align='center'>
-<img src="https://raw.githubusercontent.com/not-a-hot-dog/spotify_project/gh-pages/_images/naive_bayes_prediction.jpg" title="Naive Bayes Prediction Function" width="400"/>
+<img src="https://raw.githubusercontent.com/not-a-hot-dog/spotify_project/gh-pages/_images/pf.png" title="Naive Bayes Prediction Function" width="400"/>
 </p>
+
+All formula images sourced from [Wikipedia](https://en.wikipedia.org/wiki/Naive_Bayes_classifier).
 
 ## Implementation
 
