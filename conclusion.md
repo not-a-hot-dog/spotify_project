@@ -1,6 +1,6 @@
-# Conclusion
+## Conclusion
 
-## Comparison of Models and Performance
+### Comparison of Models and Performance
 <!-- How did individual modeling approches compare to each other and score? You can include the three sets of model metrics charts here side by side in a table -->
 
 Each of our three approaches leads to similar distributions of the evaluation metrics. The following table summarises our results by presenting the means of our evaluation metrics, evaluated for all 3 approaches, in all five different scenarios.
@@ -24,17 +24,17 @@ Based on the current results table, however, we can conjecture the following hyp
 4. Limiting the runtime of the model prediciton generation step favours naive Bayes over the other techniques.
 
 
-## Discussion
+### Discussion
 <!-- How did we do overall? Are the scores comparable to other models? Is there a chance that some of our predictions were better than what was in the original playlists? -->
 
-## Specific Improvements for Future Iterations
+### Specific Improvements for Future Iterations
 
-### Naive Bayes
+#### Naive Bayes
 Naive Bayes has the specific ability to incorporate prior information in the model. This was not utilised to the fullest extent in our current implementation. While we did incorporate some domain knowledge (such as considering every pair of songs to reflect a situation such that either song belongs to the callibration set), we did not account for various side-effects of this constraint. For instance, our model would predict with high probabilities **all** the songs that a playlist should contain, given a callibration set, it would not assign high probabilities only to the **withheld** songs. This directly impacts each of our evaluation metrics negatively, as we end up recommending songs already in the callibration set. It is trivial to correct this however, by setting the prior for each song from the callibration set to zero, so that they never get recommended. A future implementation of this appraoch should definitely incorporate this extra information.
 
-### Collaborative Filtering
+#### Collaborative Filtering
 
-### K Means
+#### K Means
 
 <!-- Could we incorporate additional data, like Genre, into a future iteration -->
 <!-- Would we want to adapt the code for scalability and performance -->
