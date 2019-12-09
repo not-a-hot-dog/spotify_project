@@ -1,8 +1,8 @@
-# Naive Bayes Classifier
+## Naive Bayes Classifier
 
 Based upon the [EDA](./eda) conducted, we had a feeling that individual song features add little information to the music recommendation solution. Further, to model a real world setting, we would wish a model that might be slow to fit initially (train), but is extremely fast to execute later (predict from). With these two considerations in mind, we propose to use a Naive-Bayes model to classify songs as belonging to a playlist recommendations or not. 
 
-## Theory
+### Theory
 
 A naive Bayes classifier is a probabilistic classification model that encodes a belief about independences in the features. Specifically, the naive Bayes classifier assumes that each feature is conditionally independ of every other feature, given the class of the response:
 
@@ -24,7 +24,7 @@ Thus, the final form of the prediction function in the case of naive Bayes is:
 
 All formula images sourced from [Wikipedia](https://en.wikipedia.org/wiki/Naive_Bayes_classifier).
 
-## Implementation
+### Implementation
 
 As mentioned above, we wished to explore the creation of a recommender system that did not require the explicit use of various song features. Thus, the problem can be cast as consisting of a prediction function that takes the 70% of the songs in a playlist (the callibration set) as the input, and attempts to recover the remaining 30% of the songs (withheld set) from the playlist as recommendations. These are made my distinguishing songs as belonging to the playlist or not - a binary classification task. To fit the model, we have data from a training set of complete playlists.
 
@@ -32,19 +32,19 @@ The appropriate methodology to perform this task using scikit-learn would be to 
 
 Keeping these constraints in mind, and with the goal of producing an implementation *tailored to this particular use-case* that can be optimised further for speed in the future, we chose to design a naive Bayes classifier from scratch.
 
-### Internal Model Representation
+#### Internal Model Representation
 
 The naive Bayes model essentially relies on the estimation, storage, and finally the utilisation of one probability for each pair of songs, where the first belongs to the  calibration set  and the second belongs to the  the withheld set . To represent this, our implementation uses a dense numpy matrix `X` of size `N * N`, where `N` is the total number of unique songs in the dataset. Each element of the matrix `X(i,j)` represents the probability that song `j` belongs to the withheld set if song `i` belongs to the calibration set. Since we know that the order of the songs in the playlist can be shuffled without any effects on the recommendations, we can constrain the constructed matrix `X` to be symmetric. That is to say, that the occurence of any two songs `i` and `j` in the same playlist in the training set implies that both the `X(i,j)` entry and the `X(j,i)` need to be modified. This is in contrast to typical model fitting techniques, which would split each training playlist into a callibration set and a witheld set, and make an update for say `X(i,j)` only when `i` was in the callibration set and `j` in the withheld set.
 
-### Model Fitting
+#### Model Fitting
 
 To train the model we wish to find an `X` matrix that reflect the playlists comprising training set. Note that an empty training set would reflect in a matrix `X` where every element would be zero. Thus, we first initialise the matrix this way (equal to zero), and then make sequential updates to the probability estimates. We iterate through all the playlists, and search for every possible pair `(i,j)` of songs. For each pair we encounter, we make two updates to the matrix: we increment the values at `X(i,j)` and `X(j,i)`. Finally, we implement the Laplace smoothing prior common in naive Bayes literature (and coincidentially also the default setting in [scikit-learn's `MultinomialNB` class](https://scikit-learn.org/stable/modules/naive_bayes.html))
 
-### Prediction
+#### Prediction
 
 Given a calibration set, we can find corresponding rows for each track in our matrix `X`. Summing these up, we get a single row vector with one element corresponding to each song. We interpret these to be proportional to the probability of each track being in the withheld set. To recommned a set of say `n` songs, we simply select the songs with the largest `n` values in this array. It is noteworthy that prediction with this model consists of only lookups of the matrix `X`, and addition operation, and finally a top-n search. Pairwise distance computations - extremely common in recommender systems, are not involved at all.
 
-## Performance
+### Performance
 We have identified the three metrics (RPS, NDCG and hit-rate) to evaluate our model. To obtain the final metrics, we compute the mean of the scores across all the playlists in the test set, across different values for number of recommendations.
 
 Below the histograms show a distribution of the scores across the three different metrics, with two distributions for RPS and NDCG, one each for the case where the number of recommendations equals the number of songs used for calibration and where it equals the number of withheld songs.
