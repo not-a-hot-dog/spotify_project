@@ -1,10 +1,12 @@
 <div style="text-align: right"> <a href="https://raw.githubusercontent.com/not-a-hot-dog/spotify_project/master/Spotify_Playlist_Generation_Group_21_Models.ipynb">Download Notebook</a> </div>  
 <div style="text-align: right"> <a href="https://drive.google.com/file/d/1vKTZ4S0wiGxiffjPxnth1rrBXIOTcLCQ/view?usp=sharing">Download Data</a> </div>  
-## Goal
-Starting with an initial playlist chosen by a user, we recommend additional songs by suggesting tracks that appear in similar playlists.
+## Project Overview 
+Our project goal is that of automatic playlist generation, where we create models for song discovery by starting with an initial playlist chosen by a user - in some cases, these playlists could contain user/context information that might be relevant in selecting similar playlists. Using the models we have developed, we recommend additional songs for users by suggesting tracks that could be in the playlist based on their similarity to the existing tracks.
 
-## Methodology
-We created 3 models for our objective: Collaborative Filtering, k-means Clustering and Naive Bayes Classifier. Details are in each model's individual page.
+## Recommender System Models 
+For the purposes of this project, in our test set of playlists, we only feed 70% of all tracks in the playlist as **calibration** for the models, keeping 30% of tracks **withheld** as the ground truth, to test our predictions against. While this might mean that there could be the scenario that our model recommends songs that the playlist user would like but are not covered in the test set, we find that this methodology of measuring success is by far the most objective way of comparing the quality of our recommendations across the models we have developed.
+
+We have created 3 models for our objective: Collaborative Filtering, k-means Clustering and Naive Bayes Classifier. Details are in each model's individual page.
 
 ## Measures of Success
 We define a relevant track as a track uri that is in the predicted dataset and the playlist's withheld dataset.
